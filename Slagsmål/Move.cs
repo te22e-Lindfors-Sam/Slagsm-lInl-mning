@@ -10,6 +10,4 @@ class Move
         Accuracy = accuracy;
         Damage = damage;
     }
-
-
 }

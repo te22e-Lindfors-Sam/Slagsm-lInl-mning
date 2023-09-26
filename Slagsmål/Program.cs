@@ -2,10 +2,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Text.Json;
-
 using NAudio.Wave;
-
-
 
 List<Move> moves;
 List<Charater> charaters;
@@ -16,28 +13,26 @@ string title = @"
 |     |    | | |  |  |    -|  |  |  |  |  |  |-   -|__   |   __|  |  |  |     | | | |   __|__   |  |   __|    -|  |  |  |  |  |  |   --| | | |-   -|  |  |
 |__|__|    |_| |_____|__|__|__  _|_____|_____|_____|_____|_____|  |_____|__|__|_|_|_|_____|_____|  |__|  |__|__|_____|____/|_____|_____| |_| |_____|_____|                                                                                                                       
 ";
-
-
-
 string filePath = "Invalid.wav"; 
 
-
+//start the audio
 var playbackTask = PlayAudioAsync(filePath);
-
 gameManager();
+
 await playbackTask;
 
 Console.WriteLine("Audio playback finished.");
 
 
 
-//Takes care of what the player wants to do
+//Manages the game state
 void gameManager()
 {
     loadData();
     Console.WriteLine(title);
     Thread.Sleep(3000);
     Console.Clear();
+
     while (true)
     {
         Console.WriteLine("Time to play");
@@ -78,8 +73,10 @@ void gameManager()
 
 #region Fight
 
+//Manages the player vs player game
 void playerVSplayer()
 {
+    //Seting up the game
     Charater p1 = playerChooseCharacter();
     Charater p2 = playerChooseCharacter();
     Console.Clear();
@@ -89,6 +86,7 @@ void playerVSplayer()
 
     int damage;
 
+    //While any player isent dead let them choose how to attack
     while (true)
     {
         damage = p1.getAttakDamage(p1.chooseMove(ConsoleColor.Blue), rand);
@@ -120,6 +118,7 @@ void playerVSplayer()
     Console.Clear();
 }
 
+//the same as above but with one bot that chooses what to do with one bot that uses random
 void playerVSbot()
 {
     Charater p1 = playerChooseCharacter();
@@ -167,6 +166,7 @@ void playerVSbot()
     Console.Clear();
 }
 
+//the same as above but with one bot that chooses what to do with 2 bot that uses random
 void botVsBot()
 {
     Charater bot1 = charaters[rand.Next(0, charaters.Count)];
@@ -223,6 +223,7 @@ void botVsBot()
 
 #region Misc
 
+//lets the player decide what character to use by using makePlayerSelectValueBetweenValues
 Charater playerChooseCharacter()
 {
     Console.WriteLine("Choose your Character");
@@ -230,12 +231,13 @@ Charater playerChooseCharacter()
     {
         Console.WriteLine("    #" + i + ": " + charaters[i].name);
     }
-    int charaterIndex = numberGetNumberFromChooise(0, charaters.Count);
+    int charaterIndex = makePlayerSelectValueBetweenValues(0, charaters.Count);
     Console.WriteLine("You choose to play as " + charaters[charaterIndex].name + "\n");
     return charaters[charaterIndex];
 }
+
 //takes input as an string and converts it to and in between 2 numbers
-int numberGetNumberFromChooise(int minChooise, int maxChooise)
+int makePlayerSelectValueBetweenValues(int minChooise, int maxChooise)
 {
     while (true)
     {
@@ -244,9 +246,9 @@ int numberGetNumberFromChooise(int minChooise, int maxChooise)
         string resp = Console.ReadLine() ?? "";
         int respValue;
 
-        if (int.TryParse(resp, out respValue))
+        if (int.TryParse(resp, out respValue))//makes sure it can be an int
         {
-            if (minChooise <= respValue && maxChooise >= respValue)
+            if (minChooise <= respValue && maxChooise >= respValue)//makes sure it is between the values
             {
                 return respValue;
             }
@@ -256,12 +258,24 @@ int numberGetNumberFromChooise(int minChooise, int maxChooise)
     }
 }
 
+//using mutlithreading to get teh audio to play at the same time. Method plays audio
+static async Task PlayAudioAsync(string filePath)
+{
+    using (var reader = new WaveFileReader(filePath))
+    using (var waveOut = new WaveOutEvent())
+    {
+        waveOut.Init(reader);
+        waveOut.Play();
+    }
+}
+
 #endregion
 
 #region SaveSystem
+//loads the data from the files moves and characters
 void loadData()
 {
-    if (File.ReadAllText("moves.txt").Length == 0)
+    if (File.ReadAllText("moves.txt").Length == 0)//if there is nothing in the text file make a new list
     {
         moves = new List<Move>();
     }
@@ -281,8 +295,10 @@ void loadData()
     }
 }
 
+//writing new data if i whould add characters
 void writeData()
 {
+    //writing data to the file
     try
     {
         using (StreamWriter writer = new StreamWriter("moves.txt"))
@@ -314,20 +330,6 @@ void writeData()
 #endregion
 
 
-static async Task PlayAudioAsync(string filePath)
-{
-    using (var reader = new WaveFileReader(filePath))
-    using (var waveOut = new WaveOutEvent())
-    {
-        waveOut.Init(reader);
-        waveOut.Play();
-
-        while (waveOut.PlaybackState == PlaybackState.Playing)
-        {
-            await Task.Delay(100);
-        }
-    }
-}
 
 // moves = new List<Move>();
 // moves.Add(new Move("Haze Enveloping Lightning Pulse", 50, 50));

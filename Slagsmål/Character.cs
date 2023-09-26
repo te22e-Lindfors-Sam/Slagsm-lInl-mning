@@ -1,5 +1,3 @@
-using System.Drawing;
-
 class Charater
 {
     public string name { get; set; }
@@ -17,6 +15,7 @@ class Charater
         this.moves = moves;
     }
 
+    //Lets the player choose the move
     public Move chooseMove(ConsoleColor color)
     {
         Console.ForegroundColor = color;
