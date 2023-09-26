@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Haze Enveloping Lightning Pulse",
+    "Accuracy": 50,
+    "Damage": 50
+  },
+  {
+    "Name": "Photon Holographic Phantasm",
+    "Accuracy": 80,
+    "Damage": 20
+  },
+  {
+    "Name": "Mousequake ",
+    "Accuracy": 60,
+    "Damage": 40
+  },
+  {
+    "Name": "Wall of Resilience ",
+    "Accuracy": 20,
+    "Damage": 80
+  }
+]

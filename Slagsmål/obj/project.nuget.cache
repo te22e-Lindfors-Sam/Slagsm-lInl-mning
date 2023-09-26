@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "bD/hXuRj9oRzGF05VCCwXsrcZXBsowzLL91iD+5SO1Vy69QjQcMZfI3PmMwQ0ShOv9OAKoLBp5fq72QCWzqD1w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sam.lindfors\\Desktop\\Programering\\SlagsmålInlämning\\Slagsmål\\Slagsmål.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sam.lindfors\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\sam.lindfors\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\sam.lindfors\\.nuget\\packages\\naudio\\2.2.1\\naudio.2.2.1.nupkg.sha512",
+    "C:\\Users\\sam.lindfors\\.nuget\\packages\\naudio.asio\\2.2.1\\naudio.asio.2.2.1.nupkg.sha512",
+    "C:\\Users\\sam.lindfors\\.nuget\\packages\\naudio.core\\2.2.1\\naudio.core.2.2.1.nupkg.sha512",
+    "C:\\Users\\sam.lindfors\\.nuget\\packages\\naudio.midi\\2.2.1\\naudio.midi.2.2.1.nupkg.sha512",
+    "C:\\Users\\sam.lindfors\\.nuget\\packages\\naudio.wasapi\\2.2.1\\naudio.wasapi.2.2.1.nupkg.sha512",
+    "C:\\Users\\sam.lindfors\\.nuget\\packages\\naudio.winmm\\2.2.1\\naudio.winmm.2.2.1.nupkg.sha512",
+    "C:\\Users\\sam.lindfors\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\sam.lindfors\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
