@@ -13,13 +13,13 @@ string title = @"
 |     |    | | |  |  |    -|  |  |  |  |  |  |-   -|__   |   __|  |  |  |     | | | |   __|__   |  |   __|    -|  |  |  |  |  |  |   --| | | |-   -|  |  |
 |__|__|    |_| |_____|__|__|__  _|_____|_____|_____|_____|_____|  |_____|__|__|_|_|_|_____|_____|  |__|  |__|__|_____|____/|_____|_____| |_| |_____|_____|                                                                                                                       
 ";
-string filePath = "Invalid.wav"; 
+string filePath = "Invalid.wav";
 
 //start the audio
 var playbackTask = PlayAudioAsync(filePath);
 gameManager();
 
-await playbackTask;
+
 
 Console.WriteLine("Audio playback finished.");
 
@@ -149,7 +149,7 @@ void playerVSbot()
         }
 
         Console.ForegroundColor = ConsoleColor.Red;
-        damage = bot.getAttakDamage(bot.moves[rand.Next(0, moves.Count)], rand);
+        damage = bot.getAttakDamage(bot.moves[rand.Next(0, bot.moves.Length)], rand);
         if (p1.currentHp - damage <= 0)
         {
             Console.WriteLine("Bot won, " + bot.name);
@@ -186,7 +186,7 @@ void botVsBot()
     while (true)
     {
         Console.ForegroundColor = ConsoleColor.Blue;
-        damage = bot1.getAttakDamage(bot1.moves[rand.Next(0, moves.Count)], rand);
+        damage = bot1.getAttakDamage(bot1.moves[rand.Next(0, bot1.moves.Length)], rand);
         if (bot2.currentHp - damage <= 0)
         {
             Console.WriteLine("Bot 1 won, " + bot1.name);
@@ -201,7 +201,7 @@ void botVsBot()
         Thread.Sleep(2000);
 
         Console.ForegroundColor = ConsoleColor.Red;
-        damage = bot2.getAttakDamage(bot2.moves[rand.Next(0, moves.Count)], rand);
+        damage = bot2.getAttakDamage(bot2.moves[rand.Next(0, bot2.moves.Length)], rand);
         if (bot1.currentHp - damage <= 0)
         {
             Console.WriteLine("Bot 2 won, " + bot2.name);
@@ -266,6 +266,13 @@ static async Task PlayAudioAsync(string filePath)
     {
         waveOut.Init(reader);
         waveOut.Play();
+
+        while (waveOut.PlaybackState == PlaybackState.Playing)
+        {
+            await Task.Delay(100);
+
+        }
+
     }
 }
 
