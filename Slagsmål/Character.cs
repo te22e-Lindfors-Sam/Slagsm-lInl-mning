@@ -16,14 +16,14 @@ class Charater
     }
 
     //Lets the player choose the move
-    public Move chooseMove(ConsoleColor color)
+    public Move ChooseMOve(ConsoleColor color)
     {
         Console.ForegroundColor = color;
         while (true)
         {
             Console.WriteLine("CHoose your move");
-            Console.WriteLine("    A: " + moves[0].Name);
-            Console.WriteLine("    B: " + moves[1].Name);
+            Console.WriteLine("    A: " + moves[0].name);
+            Console.WriteLine("    B: " + moves[1].name);
 
             string resp = Console.ReadLine() ?? "";
 
@@ -43,13 +43,13 @@ class Charater
     }
 
     //Gets the damage as an int to later apply to the enemy
-    public int getAttakDamage(Move move, Random rand)
+    public int GetAttackDamage(Move move, Random rand)
     {
-        if (move.Accuracy > rand.Next(0, 101))
+        if (move.accuracy > rand.Next(0, 101))
         {
             Console.WriteLine(name + ": Seems like the attack will hit");
             Thread.Sleep(1000);
-            return attack + move.Damage + rand.Next(-5, 6);
+            return attack + move.damage + rand.Next(-5, 6);
         }
         Console.WriteLine(name + ": Missed the attack");
         Thread.Sleep(1000);

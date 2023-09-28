@@ -5,14 +5,14 @@
     "attack": 20,
     "moves": [
       {
-        "Name": "Haze Enveloping Lightning Pulse",
-        "Accuracy": 50,
-        "Damage": 50
+        "name": "Haze Enveloping Lightning Pulse",
+        "accuracy": 50,
+        "damage": 50
       },
       {
-        "Name": "Photon Holographic Phantasm",
-        "Accuracy": 80,
-        "Damage": 20
+        "name": "Photon Holographic Phantasm",
+        "accuracy": 80,
+        "damage": 20
       }
     ]
   },
@@ -22,14 +22,14 @@
     "attack": 50,
     "moves": [
       {
-        "Name": "Mousequake ",
-        "Accuracy": 60,
-        "Damage": 40
+        "name": "Mousequake ",
+        "accuracy": 60,
+        "damage": 40
       },
       {
-        "Name": "Wall of Resilience ",
-        "Accuracy": 20,
-        "Damage": 80
+        "name": "Wall of Resilience ",
+        "accuracy": 20,
+        "damage": 80
       }
     ]
   },
@@ -39,14 +39,14 @@
     "attack": 70,
     "moves": [
       {
-        "Name": "Haze Enveloping Lightning Pulse",
-        "Accuracy": 50,
-        "Damage": 50
+        "name": "Haze Enveloping Lightning Pulse",
+        "accuracy": 50,
+        "damage": 50
       },
       {
-        "Name": "Mousequake ",
-        "Accuracy": 60,
-        "Damage": 40
+        "name": "Mousequake ",
+        "accuracy": 60,
+        "damage": 40
       }
     ]
   },
@@ -56,14 +56,14 @@
     "attack": 20,
     "moves": [
       {
-        "Name": "Wall of Resilience ",
-        "Accuracy": 20,
-        "Damage": 80
+        "name": "Wall of Resilience ",
+        "accuracy": 20,
+        "damage": 80
       },
       {
-        "Name": "Photon Holographic Phantasm",
-        "Accuracy": 80,
-        "Damage": 20
+        "name": "Photon Holographic Phantasm",
+        "accuracy": 80,
+        "damage": 20
       }
     ]
   }
